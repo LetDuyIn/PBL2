@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1761806341 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\main.cpp
+	<iostream>
+	"Game.h"
+	"Cart.h"
+	"User.h"
+	"GameInStore.h"
+
+1760577029 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.cpp
+	<iostream>
+	"Game.h"
+
+1760577029 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.h
+	<iostream>
+	<string>
+
+1760942519 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\cart.cpp
+	<iostream>
+	"Cart.h"
+
+1760942370 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\cart.h
+	"Game.h"
+	<vector>
+
+1761806288 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.h
+	<string>
+	<vector>
+	"Cart.h"
+	"Game.h"
+	"GameInStore.h"
+
+1761806288 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.cpp
+	<iostream>
+	"User.h"
+
+1761312276 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.cpp
+	<iostream>
+	"Admin.h"
+
+1761312276 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.h
+	"Game.h"
+
+1761805508 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\gameinstore.cpp
+	<iostream>
+	"GameInStore.h"
+
+1761804972 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\gameinstore.h
+	<iostream>
+	<string>
+	<iomanip>
+	<sstream>
+	"Game.h"
+
