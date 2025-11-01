@@ -24,7 +24,7 @@ void Cart::showCart()
     {
         cout << "So luong game: " << this->cap << endl;
         cout << "Game List In Cart: " << endl;
-        for(auto& g : gameList) g.viewGame();
+        for(auto& g : gameList) g.view();
         cout << "Sum of Money: " << sum() << " VND\n" << endl;
     }
 }
@@ -33,7 +33,7 @@ void Cart::showGame(string id)
 {
     for(auto& g : gameList)
     {
-        if(g.getId() == id) g.viewGame();
+        if(g.getId() == id) g.view();
     }
 }
 

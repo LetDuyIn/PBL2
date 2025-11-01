@@ -3,6 +3,7 @@
 
 #pragma once
 #include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;
@@ -16,9 +17,12 @@ protected:
     double GamePrice;
 public:
     Game(string, string, double);
-    void viewGame();
-    string getId();
+    void view();
+    string getId() const;
     double getPrice();
+
+    void writeToFile(ofstream&);
+    void readFromFile(ifstream&);
 };
 
 #endif // GAME_H_INCLUDED

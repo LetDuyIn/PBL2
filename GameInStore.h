@@ -11,22 +11,7 @@
 
 using namespace std;
 
-struct hashNode
-{
-    Game g;
-    hashNode* next;
-    hashNode(const Game&, hashNode*);
-};
 
-typedef struct hashNode *Node;
-
-struct hashTableInfo
-{
-    int cap;
-    Node* T;
-};
-
-typedef hashTableInfo hashTable;
 
 class GameInStore
 {
