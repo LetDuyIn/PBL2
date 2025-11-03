@@ -6,7 +6,6 @@
 #include <vector>
 #include "Cart.h"
 #include "Game.h"
-#include "GameInStore.h"
 
 using namespace std;
 
@@ -18,7 +17,7 @@ protected:
     Cart PerCart;
 public:
     User(string, string, Cart);
-    void viewStore(GameInStore);
+    //void viewStore(GameInStore);
     void viewGameList();
     void viewGame(string);
     void viewPerCart();

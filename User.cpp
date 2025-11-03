@@ -14,11 +14,11 @@ void User::viewPerCart()
     this->PerCart.showCart();
 }
 
-void User::viewStore(GameInStore Store)
+/*void User::viewStore(GameInStore Store)
 {
     Store.showAll();
 }
-
+*/
 void User::viewGame(string id)
 {
 
