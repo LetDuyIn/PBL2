@@ -50,6 +50,7 @@ void Admin::updGamePrice()
 
 void Admin::viewAllGames()
 {
+    
 }
 void Admin::viewAnalytics()
 {

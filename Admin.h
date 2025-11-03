@@ -23,7 +23,7 @@ public:
     void revGame();
     void updGame(); 
     void viewAllGames(); // xem kho
-    void viewAnalytics(); //xem thống kê
+    void viewAnalytics();//xem thống kê
 };
 
 #endif // ADMIN_H_INCLUDED
