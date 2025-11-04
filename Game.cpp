@@ -8,7 +8,7 @@ Game::Game(string name, string id, double price) : GameName(name), GameId(id), G
 
 }
 
-void Game::view()
+void Game::view() const
 {
     cout << "Ten: " << this->GameName << " Id: " << this-> GameId << " Gia: " << this->GamePrice << endl;
 }
@@ -18,7 +18,7 @@ string Game::getId() const
     return this->GameId;
 }
 
-double Game::getPrice()
+double Game::getPrice() const
 {
     return this->GamePrice;
 }
@@ -32,9 +32,9 @@ void Game::readFromFile(ifstream& fin)
 {
     string price;
 
-    getline(fin, GameId, ',');
-    getline(fin, GameName, ',');
-    //getline(fin, price);
+    getline(fin, this->GameId, ',');
+    getline(fin, this->GameName, ',');
+    getline(fin, price);
 
-    //this->GamePrice = stod(price);
+    this->GamePrice = stod(price);
 }

@@ -17,9 +17,9 @@ protected:
     double GamePrice;
 public:
     Game(string, string, double);
-    void view();
+    void view() const;
     string getId() const;
-    double getPrice();
+    double getPrice() const;
 
     void writeToFile(ofstream&);
     void readFromFile(ifstream&);

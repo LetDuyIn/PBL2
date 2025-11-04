@@ -44,13 +44,16 @@ struct HashTableInfo
 template <typename T>
 class HashTable
 {
-private:
+protected:
     HashTableInfo<T>* objList;
     int cap;
 
 public:
     HashTable(int cap);
     ~HashTable();
+
+    int getCap() const;
+    HashTableInfo<T>* getObjList();
 
     int hashFunction(const string&);
     void add(const T&);
@@ -60,10 +63,10 @@ public:
 };
 
 template <typename T>
-void saveToFile(const HashTable<T>&, const string&);
+void saveToFile(const HashTable<T>*, const string&);
 
 template <typename T>
-void loadFromFile(HashTable<T>&, const string&);
+void loadFromFile(HashTable<T>*, const string&);
 
 #include "Ultil.tpp"
 

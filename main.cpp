@@ -21,4 +21,6 @@ int main()
     GameInStore.add(g3);
 
     GameInStore.showAll();
+
+    //saveToFile(GameInStore, "GameInStor.txt");
 }

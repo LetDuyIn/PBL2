@@ -19,6 +19,19 @@ HashTable<T>::~HashTable()
 }
 
 template <typename T>
+int HashTable<T>::getCap() const
+{
+
+    return this->cap;
+}
+
+template <typename T>
+HashTableInfo<T>* HashTable<T>::getObjList()
+{
+    return this->objList;
+}
+
+template <typename T>
 int HashTable<T>::hashFunction(const string& id)
 {
     int hashId = 0;
@@ -82,12 +95,12 @@ void HashTable<T>::showAll()
 }
 
 template <typename T>
-void saveToFile(const HashTable<T>& objList, const string& file)
+void saveToFile(HashTable<T>* objList, const string& file)
 {
     ofstream fout(file);
-     for (int i = 0; i < objList.cap; ++i)
+     for (int i = 0; i < objList.getCap(); ++i)
     {
-        Node<T>* cur = objList.objList->table[i];
+        Node<T>* cur = objList.getObjList()->table[i];
         while (cur != nullptr)
         {
             cur->obj.writeToFile(fout);
@@ -99,7 +112,7 @@ void saveToFile(const HashTable<T>& objList, const string& file)
 }
 
 template <typename T>
-void loadFromFile(HashTable<T>& table, const string& filename)
+void loadFromFile(HashTable<T>* table, const string& filename)
 {
     ifstream fin(filename);
     if (!fin.is_open()) {
