@@ -40,6 +40,9 @@ void Cart::showGame(string id)
 double Cart::sum()
 {
     double sum = 0;
-    for(auto& g : gameList) sum += g.getPrice();
-    return sum;
+    for(auto& g : gameList)
+    {
+        double price = stod(g.getPrice());
+        sum += price;
+    }
 }

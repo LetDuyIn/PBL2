@@ -57,6 +57,27 @@ void HashTable<T>::add(const T& obj)
 }
 
 template <typename T>
+void HashTable<T>::rev(const string& id)
+{
+    int index = hashFunction(id);
+    Node<T>* curNode = this->objList->table[index];
+    Node<T>* prevNode = nullptr;
+    while(curNode != nullptr)
+    {
+        if(curNode->obj.getId() == id)
+        {
+            if(prevNode == nullptr)
+                this->objList->table[index] = curNode->next;
+            else prevNode->next = curNode->next;
+
+            delete curNode;
+        }
+        prevNode = curNode;
+        curNode = curNode->next;
+    }
+}
+
+template <typename T>
 T* HashTable<T>::findById(const string& id)
 {
     int index = hashFunction(id);
@@ -98,9 +119,16 @@ template <typename T>
 void saveToFile(HashTable<T>* objList, const string& file)
 {
     ofstream fout(file);
-     for (int i = 0; i < objList.getCap(); ++i)
+
+    if (!fout.is_open())
     {
-        Node<T>* cur = objList.getObjList()->table[i];
+        cerr << "Ko mo dc file: " << file << endl;
+        return;
+    }
+
+    for (int i = 0; i < objList->getCap(); ++i)
+    {
+        Node<T>* cur = objList->getObjList()->table[i];
         while (cur != nullptr)
         {
             cur->obj.writeToFile(fout);
@@ -112,19 +140,22 @@ void saveToFile(HashTable<T>* objList, const string& file)
 }
 
 template <typename T>
-void loadFromFile(HashTable<T>* table, const string& filename)
+void loadFromFile(HashTable<T>* objList, const string& filename)
 {
     ifstream fin(filename);
-    if (!fin.is_open()) {
-        cerr << "Không thể mở file để đọc: " << filename << endl;
+    if (!fin.is_open())
+    {
+        cerr << "Ko mo dc file: " << filename << endl;
         return;
     }
 
-    while (!fin.eof()) {
+    while (!fin.eof())
+    {
         T obj;
         obj.readFromFile(fin);
-        if (!fin.eof())
-            table.add(obj);
+        if (fin.fail())
+            break;
+        objList->add(obj);
     }
 
     fin.close();

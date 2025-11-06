@@ -14,12 +14,15 @@ class Game
 protected:
     string GameId;
     string GameName;
-    double GamePrice;
+    string GamePrice;
 public:
-    Game(string, string, double);
+    Game();
+    Game(string, string, string);
     void view() const;
     string getId() const;
-    double getPrice() const;
+    string getPrice() const;
+
+    void upd();
 
     void writeToFile(ofstream&);
     void readFromFile(ifstream&);

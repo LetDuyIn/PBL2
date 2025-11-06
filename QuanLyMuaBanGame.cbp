@@ -38,12 +38,13 @@
 		<Unit filename="Cart.h" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
-		<Unit filename="GameInStore.txt" />
 		<Unit filename="QuanLyMuaBanGame.cbp" />
 		<Unit filename="QuanLyMuaBanGame.depend" />
 		<Unit filename="QuanLyMuaBanGame.layout" />
+		<Unit filename="StoreDataBase.h" />
 		<Unit filename="Ultil.cpp" />
 		<Unit filename="Ultil.h" />
+		<Unit filename="Ultil.tpp" />
 		<Unit filename="User.cpp" />
 		<Unit filename="User.h" />
 		<Unit filename="main.cpp" />

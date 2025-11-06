@@ -57,10 +57,17 @@ public:
 
     int hashFunction(const string&);
     void add(const T&);
+    void rev(const string&);
     T* findById(const string&);
     void show(const string&);
     void showAll();
 };
+
+
+
+
+
+
 
 template <typename T>
 void saveToFile(const HashTable<T>*, const string&);
