@@ -1,16 +1,20 @@
 # depslib dependency file v1.0
-1762399621 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\main.cpp
+1762524318 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\main.cpp
 	<iostream>
 	"Game.h"
 	"Cart.h"
 	"User.h"
 	"Ultil.h"
+	"StoreDataBase.h"
 
-1762398425 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.cpp
+1762528164 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.cpp
 	<iostream>
 	"Game.h"
+	<sstream>
+	<iomanip>
+	<string>
 
-1762397284 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.h
+1762528164 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.h
 	<iostream>
 	<fstream>
 	<string>
@@ -53,10 +57,17 @@
 
 1761807342 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.cpp
 
-1762399476 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.h
+1762528184 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.h
 	"Ultil.tpp"
 
-1762399655 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.tpp
+1762528164 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.tpp
 	<sstream>
 	<iomanip>
+
+1762520275 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\storedatabase.h
+	<iostream>
+	"Ultil.h"
+	"Game.h"
+	"User.h"
+	"Admin.h"
 

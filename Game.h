@@ -17,12 +17,14 @@ protected:
     string GamePrice;
 public:
     Game();
-    Game(string, string, string);
+
+    void create(int);
+    void info();
     void view() const;
+    void upd();
+
     string getId() const;
     string getPrice() const;
-
-    void upd();
 
     void writeToFile(ofstream&);
     void readFromFile(ifstream&);

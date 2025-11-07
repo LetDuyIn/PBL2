@@ -1,21 +1,19 @@
 #include <iostream>
 #include "Game.h"
+#include <sstream>
+#include <iomanip>
+#include <string>
 
 using namespace std;
 
-Game::Game() : GameName(""), GameId(""), GamePrice("")
-{
-
-}
-
-Game::Game(string name, string id, string price) : GameName(name), GameId(id), GamePrice(price)
+Game::Game()
 {
 
 }
 
 void Game::view() const
 {
-    cout << "Ten: " << this->GameName << " Id: " << this-> GameId << " Gia: " << this->GamePrice << endl;
+    cout << "Id: " << this-> GameId << " Ten: " << this->GameName << " Gia: " << this->GamePrice << endl;
 }
 
 string Game::getId() const
@@ -26,6 +24,21 @@ string Game::getId() const
 string Game::getPrice() const
 {
     return this->GamePrice;
+}
+
+void Game::create(int numId)
+{
+    stringstream ss;
+    ss<< 'G' << setw(2) << setfill('0') << numId;
+    this->GameId = ss.str();
+}
+
+void Game::info()
+{
+    cout << "Nhap ten: ";
+    getline(cin, this->GameName);
+    cout << "Nhap gia: ";
+    getline(cin, this->GamePrice);
 }
 
 void Game::upd()
@@ -45,28 +58,22 @@ void Game::upd()
         {
             case 1:
                 {
-                    string newName;
                     cout << "New GameName: ";
-                    getline(cin, newName);
-                    this->GameName = newName;
+                    getline(cin, this->GameName);
                     cout << "Da doi thanh " << this->GameName <<endl;
                     break;
                 }
             case 2:
                 {
-                    string newId;
                     cout << "New GameId: ";
-                    getline(cin, newId);
-                    this->GameId = newId;
+                    getline(cin, this->GameId);
                     cout << "Da doi thanh " << this->GameId <<endl;
                     break;
                 }
             case 3:
                 {
-                    string newPrice;
                     cout << "New GamePrice: ";
-                    getline(cin, newPrice);
-                    this->GamePrice = newPrice;
+                    getline(cin, this->GamePrice);
                     cout << "Da doi thanh " << this->GamePrice <<endl;
                     break;
                 }

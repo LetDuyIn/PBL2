@@ -12,9 +12,9 @@ class StoreDataBase
 {
 private:
     static StoreDataBase* _Instance;
-    HashTable<Game>* GameInStore = new HashTable(99);
-    HashTable<User>* GameInStore = new HashTable(99);
-    HashTable<Admin>* GameInStore = new HashTable(99);
+    HashTable<Game>* GameInStore = new HashTable<Game>(99);
+    HashTable<User>* UserInStore = new HashTable<User>(99);
+    HashTable<Admin>* AdminInStore = new HashTable<Admin>(99);
 
 private:
     StoreDataBase();
@@ -26,25 +26,25 @@ public:
     void Show();
 };
 
-CSDL::CSDL()
+StoreDataBase::StoreDataBase()
 {
     cout << "Create" << endl;
 }
 
-CSDL::~CSDL(){}
+StoreDataBase::~StoreDataBase(){}
 
-CSDL* CSDL::Instance()
+StoreDataBase* StoreDataBase::Instance()
 {
     if(_Instance == nullptr)
-        _Instance = new CSDL();
+        _Instance = new StoreDataBase();
     return _Instance;
 }
 
-void CSDL::Show()
+void StoreDataBase::Show()
 {
     cout << "Show" << endl;
 }
 
-CSDL* CSDL::_Instance = nullptr;
+StoreDataBase* StoreDataBase::_Instance = nullptr;
 
 #endif // STOREDATABASE_H_INCLUDED

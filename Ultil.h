@@ -47,6 +47,7 @@ class HashTable
 protected:
     HashTableInfo<T>* objList;
     int cap;
+    int qnt;
 
 public:
     HashTable(int cap);
@@ -56,7 +57,9 @@ public:
     HashTableInfo<T>* getObjList();
 
     int hashFunction(const string&);
-    void add(const T&);
+    void addNew();
+    void add(const T&, bool);
+    void reAssignId();
     void rev(const string&);
     T* findById(const string&);
     void show(const string&);

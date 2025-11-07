@@ -9,6 +9,7 @@ template <typename T>
 HashTable<T>::HashTable(int cap)
 {
     this->cap = cap;
+    this->qnt = 0;
     objList = new HashTableInfo<T>(this->cap);
 }
 
@@ -41,10 +42,14 @@ int HashTable<T>::hashFunction(const string& id)
 }
 
 template <typename T>
-void HashTable<T>::add(const T& obj)
+void HashTable<T>::add(const T& obj, bool file)
 {
-    int index = hashFunction(obj.getId());
-    Node<T>* newNode = new Node<T>(obj, nullptr);
+    T newObj = obj;
+    if(!file)
+        newObj.create(this->qnt);
+
+    int index = hashFunction(newObj.getId());
+    Node<T>* newNode = new Node<T>(newObj, nullptr);
     if(this->objList->table[index] == nullptr)
         this->objList->table[index] = newNode;
     else
@@ -53,6 +58,32 @@ void HashTable<T>::add(const T& obj)
         while(curNode->next != nullptr)
             curNode = curNode->next;
         curNode->next = newNode;
+    }
+    this->qnt++;
+}
+
+template <typename T>
+void HashTable<T>::addNew()
+{
+    T obj;
+    obj.create(this->qnt);
+    obj.info();
+    add(obj, false);
+}
+
+template <typename T>
+void HashTable<T>::reAssignId()
+{
+    int newId = 0;
+    for(int i = 0; i < this->cap; i++)
+    {
+        Node<T>* curNode = this->objList->table[i];
+        while(curNode != nullptr)
+        {
+            curNode->obj.create(newId);
+            newId++;
+            curNode = curNode->next;
+        }
     }
 }
 
@@ -71,10 +102,13 @@ void HashTable<T>::rev(const string& id)
             else prevNode->next = curNode->next;
 
             delete curNode;
+            this->qnt--;
+            break;
         }
         prevNode = curNode;
         curNode = curNode->next;
     }
+    reAssignId();
 }
 
 template <typename T>
@@ -155,7 +189,7 @@ void loadFromFile(HashTable<T>* objList, const string& filename)
         obj.readFromFile(fin);
         if (fin.fail())
             break;
-        objList->add(obj);
+        objList->add(obj, true);
     }
 
     fin.close();
