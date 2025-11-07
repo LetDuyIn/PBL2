@@ -3,9 +3,9 @@
 
 #pragma once
 #include <string>
-#include <vector>
 #include "Cart.h"
 #include "Game.h"
+#include "Ultil.h"
 
 using namespace std;
 
@@ -18,8 +18,8 @@ protected:
 public:
     User(string, string, Cart);
     //void viewStore(GameInStore);
-    void viewGameList();
-    void viewGame(string);
+    void viewStore(HashTable<Game>* store);
+    void viewGame(HashTable<Game>* store, string id);
     void viewPerCart();
 };
 

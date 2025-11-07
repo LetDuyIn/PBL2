@@ -1,29 +1,30 @@
 #ifndef ADMIN_H_INCLUDED
 #define ADMIN_H_INCLUDED
 
-#pragma once 
-#include "Game.h"
-#include "GameInStore.h"
 #include <string>
 #include <iostream>
-
+#include <string>
+#include <limits> 
+#include "Game.h"
+#include "Ultil.h" 
 using namespace std;
 
 class Admin
 {
-private :
-    GameInStore* store; //Con trỏ trỏ tới kho game
+private:
+    // Con trỏ để giữ kho game
+    HashTable<Game>* store; 
+
     
-    void clearInputBuffer(); // Hàm tiện ích để xóa bộ đệm input
+    void clearInputBuffer(); 
 
 public:
-    Admin(GameInStore* gameStore); 
     
-    void addGame();
-    void revGame();
-    void updGame(); 
-    void viewAllGames(); // xem kho
-    void viewAnalytics();//xem thống kê
+    Admin(HashTable<Game>* gameStore); 
+
+    void addGameToStore();    
+    void revGameFromStore(); 
+    void updGameInStore(); 
 };
 
 #endif // ADMIN_H_INCLUDED
