@@ -1,57 +1,80 @@
-#include <iostream>
-#include "string"
-#include <limits>
 #include "Admin.h"
-#include "Game.h"
 
-using namespace std;
-
-Admin::Admin(GameInStore* gameStore) : store(gameStore)
+// Hàm khởi tạo: Gán con trỏ 'store' bằng địa chỉ kho game được truyền vào
+Admin::Admin(HashTable<Game>* gameStore) : store(gameStore)
 {
-    // Gán con trỏ store của class Admin bằng địa chỉ của kho game
+    // this->store = gameStore; // (Đây là cách viết tường minh)
 }
 
-// Hàm tiện ích để tránh lỗi trôi lệnh (cin và getline)
+// Hàm tiện ích (để xóa bộ đệm cin)
 void Admin::clearInputBuffer()
 {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
+
+// Chức năng THÊM GAME
 void Admin::addGameToStore()
 {
-    string id, name;
-    double price;
-
-    cout << "--- Them Game Moi ---" << endl;
-    cout << "Nhap ID game: ";
+    string id, name, price;
+    cout << "\n--- THEM GAME MOI ---" << endl;
+    
+    cout << "Nhap ID game (vi du: G06): ";
     cin >> id;
-    clearInputBuffer();
+    clearInputBuffer(); // Quan trọng
+
     cout << "Nhap Ten game: ";
     getline(cin, name); // Dùng getline để nhập tên có khoảng trắng
+
     cout << "Nhap Gia game: ";
-    while(!(cin >> price)) { // Vòng lặp kiểm tra input
-        cout << "Gia khong hop le. Vui long nhap so: ";
-        cin.clear();
-        clearInputBuffer();
-    }
-    clearInputBuffer(); // Xóa bộ đệm sau khi nhập giá
-    // Tạo game mới và thêm vào kho thông qua con trỏ 'store'
+    cin >> price;
+    clearInputBuffer(); // Quan trọng
+
+    // Tạo game mới
     Game newGame(name, id, price);
-    store->addGame(newGame);
+    
+    // Dùng con trỏ 'store' để gọi hàm add() từ Ultil.h
+    store->add(newGame);
 
     cout << "==> Da them game '" << name << "' vao kho." << endl;
 }
-void Admin::revGameFromStore()
-{
-}
 
-void Admin::updGamePrice()
+// Chức năng XÓA GAME
+void Admin::removeGameFromStore()
 {
-}
+    string id;
+    cout << "\n--- XOA GAME ---" << endl;
+    cout << "Nhap ID game can xoa: ";
+    cin >> id;
 
-void Admin::viewAllGames()
-{
+    // Dùng con trỏ 'store' để gọi hàm rev() từ Ultil.h
+    store->rev(id);
     
+    cout << "==> Da gui yeu cau xoa game " << id << "." << endl;
+    cout << "(Luu y: Kiem tra lai danh sach de chac chan game da bi xoa)" << endl;
 }
-void Admin::viewAnalytics()
+
+// Chức năng CẬP NHẬT GAME
+void Admin::updateGameInStore()
 {
+    string id;
+    cout << "\n--- CAP NHAT GAME ---" << endl;
+    cout << "Nhap ID game can cap nhat: ";
+    cin >> id;
+
+    // 1. Tìm game trong kho
+    Game* gameToUpdate = store->findById(id);
+
+    // 2. Kiem tra xem co tim thay khong
+    if (gameToUpdate != nullptr)
+    {
+        cout << "Tim thay game: " << gameToUpdate->getId() << endl;
+        // 3. Gọi hàm upd() của chính game đó
+        // (Hàm này đã được viết sẵn trong Game.cpp)
+        gameToUpdate->upd();
+        cout << "==> Da cap nhat game " << id << "." << endl;
+    }
+    else
+    {
+        cout << "==> Khong tim thay game voi ID: " << id << endl;
+    }
 }
