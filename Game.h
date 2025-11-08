@@ -25,6 +25,7 @@ public:
 
     string getId() const;
     string getPrice() const;
+    string getName() const;
 
     void writeToFile(ofstream&);
     void readFromFile(ifstream&);

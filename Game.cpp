@@ -21,6 +21,11 @@ string Game::getId() const
     return this->GameId;
 }
 
+string Game::getName() const
+{
+    return this->GameName;
+}
+
 string Game::getPrice() const
 {
     return this->GamePrice;
@@ -79,6 +84,7 @@ void Game::upd()
                 }
             case 4:
                 cout << "Dung update" << endl;
+                break;
             default:
                 cout << "Chon lai" << endl;
                 break;

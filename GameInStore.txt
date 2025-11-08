@@ -1,1 +1,6 @@
 G00,LoL,12000
+G01,Dota 2,50000
+G02,Skyrim,75000
+G03,Dark Souls 1, 23000
+G04,Sekiro,72000
+G05,Stardew Valley,71000

@@ -57,20 +57,16 @@ public:
     HashTableInfo<T>* getObjList();
 
     int hashFunction(const string&);
-    void addNew();
     void add(const T&, bool);
+    void addNew();
     void reAssignId();
     void rev(const string&);
+    void upd(const string&);
+
     T* findById(const string&);
     void show(const string&);
     void showAll();
 };
-
-
-
-
-
-
 
 template <typename T>
 void saveToFile(const HashTable<T>*, const string&);

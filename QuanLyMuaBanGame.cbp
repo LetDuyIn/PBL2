@@ -38,6 +38,7 @@
 		<Unit filename="Cart.h" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
+		<Unit filename="Menu.h" />
 		<Unit filename="QuanLyMuaBanGame.cbp" />
 		<Unit filename="QuanLyMuaBanGame.depend" />
 		<Unit filename="QuanLyMuaBanGame.layout" />
