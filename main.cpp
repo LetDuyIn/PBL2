@@ -9,28 +9,10 @@ using namespace std;
 
 int main()
 {
-    HashTable<Game>* GameInStore = new HashTable<Game>(10);
-    GameInStore->showAll();
-
-    GameInStore->addNew();
-    GameInStore->addNew();
-    GameInStore->addNew();
-
-    //GameInStore->add();
-
-    //saveToFile(GameInStore, "GameInStore.txt");
-
-    //loadFromFile(GameInStore, "GameInStore.txt");
-
-    GameInStore->showAll();
-    GameInStore->rev("G02");
-    GameInStore->showAll();
-
-
-    //GameInStore->add(g2);
-
-    //GameInStore->showAll();
-
-    delete GameInStore;
-
+    StoreDataBase* Store = StoreDataBase::Instance();
+    loadFromFile(Store->getGameTable(), "GameInStore.txt");
+    Store->getGameTable()->showAll();
+    Store->getGameTable()->addNew();
+    Store->getGameTable()->showAll();
+    Store->getGameTable()->
 }

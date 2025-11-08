@@ -129,22 +129,26 @@ template <typename T>
 void HashTable<T>::show(const string& id)
 {
     T* found = findById(id);
-    if(found != nullptr)
-    {
+    if (found != nullptr)
         found->view();
-    }
-    else cout << "Ko ton tai " << id << endl;
+}
+
+template <typename T>
+void HashTable<T>::upd(const string& id)
+{
+    T* found = findById(id);
+    found->upd();
 }
 
 template <typename T>
 void HashTable<T>::showAll()
 {
     string id;
-    for(int i = 0; i < this->cap; i++)
+    T obj;
+    for(int numId = 0; numId <= this->cap; numId++)
     {
-        stringstream ssid;
-        ssid << 'G' << setw(2) << setfill('0') << i;
-        id = ssid.str();
+        obj.create(numId);
+        id = obj.getId();
         show(id);
     }
 }

@@ -12,23 +12,26 @@ class StoreDataBase
 {
 private:
     static StoreDataBase* _Instance;
-    HashTable<Game>* GameInStore = new HashTable<Game>(99);
-    HashTable<User>* UserInStore = new HashTable<User>(99);
-    HashTable<Admin>* AdminInStore = new HashTable<Admin>(99);
+    HashTable<Game>* GameInStore = new HashTable<Game>(100);
+    HashTable<User>* UserInStore = new HashTable<User>(100);
+    HashTable<Admin>* AdminInStore = new HashTable<Admin>(100);
 
 private:
     StoreDataBase();
     StoreDataBase(const StoreDataBase&) = delete;
     StoreDataBase& operator=(const StoreDataBase&) = delete;
 public:
+    HashTable<Game>* getGameTable();
+    HashTable<User>* getUserTable();
+    HashTable<Admin>* getGameAdmin();
+
     ~StoreDataBase();
     static StoreDataBase* Instance();
-    void Show();
 };
 
 StoreDataBase::StoreDataBase()
 {
-    cout << "Create" << endl;
+
 }
 
 StoreDataBase::~StoreDataBase(){}
@@ -40,9 +43,19 @@ StoreDataBase* StoreDataBase::Instance()
     return _Instance;
 }
 
-void StoreDataBase::Show()
+HashTable<Game>* StoreDataBase::getGameTable()
 {
-    cout << "Show" << endl;
+    return this->GameInStore;
+}
+
+HashTable<User>* StoreDataBase::getUserTable()
+{
+    return this->UserInStore;
+}
+
+HashTable<Admin>* StoreDataBase::getGameAdmin()
+{
+    return this->AdminInStore;
 }
 
 StoreDataBase* StoreDataBase::_Instance = nullptr;
