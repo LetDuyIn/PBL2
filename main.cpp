@@ -14,4 +14,5 @@ int main()
     Store->getGameTable()->showAll();
     Store->getGameTable()->addNew();
     Store->getGameTable()->showAll();
+    Store->getGameTable()->
 }
