@@ -5,7 +5,7 @@ using namespace std;
 
 User::User(string name, string id, Cart cart) : UserName(name), UserId(id), PerCart(cart)
 {
-
+    
 }
 
 void User::viewPerCart()
@@ -14,12 +14,17 @@ void User::viewPerCart()
     this->PerCart.showCart();
 }
 
-/*void User::viewStore(GameInStore Store)
+void User::viewStore(HashTable<Game>* store)
 {
-    Store.showAll();
-}
-*/
-void User::viewGame(string id)
-{
+    cout << "\n --- Xin Chao" << this->UserName << "--- " << endl;
+    cout << "--- Danh sach Game co trong cua hang ---" << endl;
 
+    store->showAll();
+}
+
+void User::viewGame(HashTable<Game>* store, string id)
+{
+    cout << "\n--- " << this->UserName << " Dang xem Game" << id << "---" << endl;
+
+    store->show(id);
 }
