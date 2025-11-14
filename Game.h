@@ -15,6 +15,7 @@ protected:
     string GameId;
     string GameName;
     string GamePrice;
+    string GameRate;
 public:
     Game();
 
@@ -22,6 +23,7 @@ public:
     void info();
     void view() const;
     void upd();
+    void rate(double);
 
     string getId() const;
     string getPrice() const;

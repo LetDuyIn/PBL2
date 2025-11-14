@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1762536414 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\main.cpp
+1762563943 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\main.cpp
 	<iostream>
 	"Game.h"
 	"Cart.h"
@@ -7,14 +7,14 @@
 	"Ultil.h"
 	"StoreDataBase.h"
 
-1762536580 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.cpp
+1763006621 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.cpp
 	<iostream>
 	"Game.h"
 	<sstream>
 	<iomanip>
 	<string>
 
-1762536580 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.h
+1763006621 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.h
 	<iostream>
 	<fstream>
 	<string>
@@ -27,24 +27,24 @@
 	"Game.h"
 	<vector>
 
-1762530697 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.h
+1762561369 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.h
 	<string>
 	<vector>
 	"Cart.h"
 	"Game.h"
 
-1762530697 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.cpp
+1762561369 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.cpp
 	<iostream>
 	"User.h"
 
-1762532756 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.cpp
+1762561369 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.cpp
 	<iostream>
 	"string"
 	<limits>
 	"Admin.h"
 	"Game.h"
 
-1762532721 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.h
+1762561369 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.h
 	"Game.h"
 	<string>
 	<iostream>
@@ -62,14 +62,14 @@
 
 1761807342 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.cpp
 
-1762532621 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.h
+1763131720 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.h
 	"Ultil.tpp"
 
-1762533647 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.tpp
+1763131778 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.tpp
 	<sstream>
 	<iomanip>
 
-1762536401 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\storedatabase.h
+1762563434 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\storedatabase.h
 	<iostream>
 	"Ultil.h"
 	"Game.h"

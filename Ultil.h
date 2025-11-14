@@ -48,6 +48,7 @@ protected:
     HashTableInfo<T>* objList;
     int cap;
     int qnt;
+    int* checkedId;
 
 public:
     HashTable(int cap);
@@ -57,6 +58,9 @@ public:
     HashTableInfo<T>* getObjList();
 
     int hashFunction(const string&);
+    int availId();
+    int extractNumId(const string&);
+
     void add(const T&, bool);
     void addNew();
     void reAssignId();

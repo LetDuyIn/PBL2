@@ -23,7 +23,7 @@ private:
 public:
     HashTable<Game>* getGameTable();
     HashTable<User>* getUserTable();
-    HashTable<Admin>* getGameAdmin();
+    HashTable<Admin>* getAdminTable();
 
     ~StoreDataBase();
     static StoreDataBase* Instance();
@@ -53,7 +53,7 @@ HashTable<User>* StoreDataBase::getUserTable()
     return this->UserInStore;
 }
 
-HashTable<Admin>* StoreDataBase::getGameAdmin()
+HashTable<Admin>* StoreDataBase::getAdminTable()
 {
     return this->AdminInStore;
 }

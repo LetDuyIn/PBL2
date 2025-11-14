@@ -92,6 +92,11 @@ void Game::upd()
     } while (choice != 4);
 }
 
+void Game::rate(double rate)
+{
+
+}
+
 void Game::writeToFile(ofstream& fout)
 {
     fout << this->GameId << "," << this->GameName << "," << this->GamePrice <<endl;

@@ -11,6 +11,29 @@ HashTable<T>::HashTable(int cap)
     this->cap = cap;
     this->qnt = 0;
     objList = new HashTableInfo<T>(this->cap);
+
+    checkedId = new int[cap + 1];
+    for(int i = 0; i <= cap; i++)
+        checkedId[i] = 0;
+}
+
+template <typename T>
+int HashTable<T>::availId()
+{
+    for(int i = 1; i <= this->cap; i++)
+    {
+        if(this->checkedId[i] == 0)
+            return i;
+    }
+}
+
+template <typename T>
+int HashTable<T>::extractNumId(const string& id)
+{
+    int pos = 0;
+    while(pos < id.size() && !isdigit(id[pos]))
+        pos++;
+    return stoi(id.substr(pos));
 }
 
 template <typename T>
@@ -22,7 +45,6 @@ HashTable<T>::~HashTable()
 template <typename T>
 int HashTable<T>::getCap() const
 {
-
     return this->cap;
 }
 
@@ -45,8 +67,14 @@ template <typename T>
 void HashTable<T>::add(const T& obj, bool file)
 {
     T newObj = obj;
+    int numId;
+
     if(!file)
-        newObj.create(this->qnt);
+    {
+        numId = availId();
+        newObj.create(numId);
+    }
+    else numId = extractNumId(newObj.getId());
 
     int index = hashFunction(newObj.getId());
     Node<T>* newNode = new Node<T>(newObj, nullptr);
@@ -59,32 +87,18 @@ void HashTable<T>::add(const T& obj, bool file)
             curNode = curNode->next;
         curNode->next = newNode;
     }
-    this->qnt++;
+    this->checkedId[numId] = true;
 }
 
 template <typename T>
 void HashTable<T>::addNew()
 {
     T obj;
-    obj.create(this->qnt);
+    int numId = availId();
+
+    obj.create(numId);
     obj.info();
     add(obj, false);
-}
-
-template <typename T>
-void HashTable<T>::reAssignId()
-{
-    int newId = 0;
-    for(int i = 0; i < this->cap; i++)
-    {
-        Node<T>* curNode = this->objList->table[i];
-        while(curNode != nullptr)
-        {
-            curNode->obj.create(newId);
-            newId++;
-            curNode = curNode->next;
-        }
-    }
 }
 
 template <typename T>
@@ -102,13 +116,15 @@ void HashTable<T>::rev(const string& id)
             else prevNode->next = curNode->next;
 
             delete curNode;
-            this->qnt--;
+            curNode = nullptr;
+
+            int numId = extractNumId(id);
+            this->checkedId[numId] = false;
             break;
         }
         prevNode = curNode;
         curNode = curNode->next;
     }
-    reAssignId();
 }
 
 template <typename T>
@@ -137,19 +153,25 @@ template <typename T>
 void HashTable<T>::upd(const string& id)
 {
     T* found = findById(id);
+    if(found == nullptr)
+    {
+        cout << "Ko tim thay Id de update" << endl;
+        return;
+    }
     found->upd();
 }
 
 template <typename T>
 void HashTable<T>::showAll()
 {
-    string id;
-    T obj;
-    for(int numId = 0; numId <= this->cap; numId++)
+    for (int i = 0; i < this->cap; i++)
     {
-        obj.create(numId);
-        id = obj.getId();
-        show(id);
+        Node<T>* curNode = this->objList->table[i];
+        while (curNode != nullptr)
+        {
+            curNode->obj.view();
+            curNode = curNode->next;
+        }
     }
 }
 
@@ -181,13 +203,14 @@ template <typename T>
 void loadFromFile(HashTable<T>* objList, const string& filename)
 {
     ifstream fin(filename);
-    if (!fin.is_open())
+    if(!fin.is_open())
     {
         cerr << "Ko mo dc file: " << filename << endl;
         return;
     }
 
-    while (!fin.eof())
+    int loadQnt = 0;
+    while(!fin.eof())
     {
         T obj;
         obj.readFromFile(fin);
@@ -195,6 +218,5 @@ void loadFromFile(HashTable<T>* objList, const string& filename)
             break;
         objList->add(obj, true);
     }
-
     fin.close();
 }
