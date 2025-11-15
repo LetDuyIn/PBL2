@@ -49,7 +49,7 @@ void Admin::revGameFromStore()
 }
 
 
-void Admin::updInStore()
+void Admin::updGameInStore()
 {
     string id;
     cout << "\n--- CAP NHAT GAME ---" << endl;

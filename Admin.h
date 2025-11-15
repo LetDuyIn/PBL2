@@ -25,6 +25,7 @@ public:
     void addGameToStore();    
     void revGameFromStore(); 
     void updGameInStore(); 
+    void viewAnalytics();
 };
 
 #endif // ADMIN_H_INCLUDED
