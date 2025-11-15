@@ -12,6 +12,7 @@ class Cart
     friend class User;
 protected:
     HashTable<Game>* gameList;
+    HashTable<Game>* paidGames;
     int cap;
 public:
     Cart();
