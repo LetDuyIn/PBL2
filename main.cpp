@@ -3,22 +3,25 @@
 #include "Cart.h"
 #include "User.h"
 #include "Ultil.h"
+#include "StoreDataBase.h"
 using namespace std;
 
 int main()
 {
-    HashTable<Game> GameInStore(10);
-    GameInStore.showAll();
+    StoreDataBase* store = StoreDataBase::Instance();
+    HashTable<Game>* games = store->getGameTable();
+    loadFromFile(games, "GameInStore.txt");
+    games->showAll();
 
-    Game g0("Skyrim", "G00", 30000);
-    Game g1("Skyrim", "G01", 30000);
-    Game g2("Skyrim", "G02", 30000);
-    Game g3("Skyrim", "G03", 30000);
+    HashTable<User>* users = store->getUserTable();
+    loadFromFile(users, "UserInStore.txt");
+    users->showAll();
 
-    GameInStore.add(g0);
-    GameInStore.add(g1);
-    GameInStore.add(g2);
-    GameInStore.add(g3);
+    HashTable<Admin>* admins = store->getAdminTable();
+    loadFromFile(admins, "AdminInStore.txt");
+    admins->showAll();
 
-    GameInStore.showAll();
+
+
+
 }

@@ -1,0 +1,20 @@
+G12,Spider-Man,450000,Action,9.0,3
+G13,Breath of the Wild,600000,Adventure,9.7,7
+G14,Super Mario Odyssey,350000,Platformer,9.3,4
+G15,Resident Evil 2,300000,Horror,8.7,2
+G16,The Last of Us Part II,500000,Action-Adventure,9.4,5
+G17,DOOM Eternal,400000,FPS,8.9,3
+G18,Cuphead,150000,Platformer,9.1,2
+G19,Red Dead Redemption 2,550000,Action-Adventure,9.6,6
+G20,Persona 5,450000,J-RPG,9.2,4
+G01,The Witcher 3,500000,RPG,9.5,1
+G02,Hollow Knight,150000,Metroidvania,9.2,2
+G03,Celeste,120000,Platformer,9.0,3
+G04,Stardew Valley,200000,Farming,9.3,5
+G05,Dark Souls III,450000,Action RPG,9.1,2
+G06,Undertale,100000,Adventure,9.4,4
+G07,Slay the Spire,180000,Card Game,8.9,1
+G08,Hades,250000,Rogue-like,9.6,3
+G09,Ori and the Blind Forest,160000,Platformer,9.2,2
+G10,Monster Hunter: World,400000,Action,8.8,1
+G11,God of War,550000,Action,9.5,6

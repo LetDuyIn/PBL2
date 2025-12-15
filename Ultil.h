@@ -44,26 +44,37 @@ struct HashTableInfo
 template <typename T>
 class HashTable
 {
-private:
+protected:
     HashTableInfo<T>* objList;
     int cap;
+    int* checkedId;
 
 public:
     HashTable(int cap);
     ~HashTable();
 
+    int getCap() const;
+    HashTableInfo<T>* getObjList();
+
     int hashFunction(const string&);
-    void add(const T&);
+    int availId();
+    int extractNumId(const string&);
+
+    void add(const T&, bool);
+    void addNew();
+    void rev(const string&);
+    void upd(const string&);
+
     T* findById(const string&);
     void show(const string&);
     void showAll();
 };
 
 template <typename T>
-void saveToFile(const HashTable<T>&, const string&);
+void saveToFile(const HashTable<T>*, const string&);
 
 template <typename T>
-void loadFromFile(HashTable<T>&, const string&);
+void loadFromFile(HashTable<T>*, const string&);
 
 #include "Ultil.tpp"
 

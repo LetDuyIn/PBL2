@@ -1,5 +1,6 @@
 #include <sstream>
 #include <iomanip>
+#include <fstream>
 
 #pragma once
 
@@ -10,12 +11,47 @@ HashTable<T>::HashTable(int cap)
 {
     this->cap = cap;
     objList = new HashTableInfo<T>(this->cap);
+
+    checkedId = new int[cap + 1];
+    for(int i = 0; i <= cap; i++)
+        checkedId[i] = 0;
+}
+
+template <typename T>
+int HashTable<T>::availId()
+{
+    for(int i = 1; i <= this->cap; i++)
+    {
+        if(this->checkedId[i] == 0)
+            return i;
+    }
+}
+
+template <typename T>
+int HashTable<T>::extractNumId(const string& id)
+{
+    int pos = 0;
+    while(pos < id.size() && !isdigit(id[pos]))
+        pos++;
+    return stoi(id.substr(pos));
 }
 
 template <typename T>
 HashTable<T>::~HashTable()
 {
     delete objList;
+}
+
+template <typename T>
+int HashTable<T>::getCap() const
+{
+    return this->cap;
+}
+
+template <typename T>
+HashTableInfo<T>* HashTable<T>::getObjList()
+{
+    return this->objList;
 }
 
 template <typename T>
@@ -28,10 +64,20 @@ int HashTable<T>::hashFunction(const string& id)
 }
 
 template <typename T>
-void HashTable<T>::add(const T& obj)
+void HashTable<T>::add(const T& obj, bool file)
 {
-    int index = hashFunction(obj.getId());
-    Node<T>* newNode = new Node<T>(obj, nullptr);
+    T newObj = obj;
+    int numId;
+
+    if(!file)
+    {
+        numId = availId();
+        newObj.create(numId);
+    }
+    else numId = extractNumId(newObj.getId());
+
+    int index = hashFunction(newObj.getId());
+    Node<T>* newNode = new Node<T>(newObj, nullptr);
     if(this->objList->table[index] == nullptr)
         this->objList->table[index] = newNode;
     else
@@ -40,6 +86,44 @@ void HashTable<T>::add(const T& obj)
         while(curNode->next != nullptr)
             curNode = curNode->next;
         curNode->next = newNode;
+    }
+    this->checkedId[numId] = true;
+}
+
+template <typename T>
+void HashTable<T>::addNew()
+{
+    T obj;
+    int numId = availId();
+
+    obj.create(numId);
+    obj.info();
+    add(obj, false);
+}
+
+template <typename T>
+void HashTable<T>::rev(const string& id)
+{
+    int index = hashFunction(id);
+    Node<T>* curNode = this->objList->table[index];
+    Node<T>* prevNode = nullptr;
+    while(curNode != nullptr)
+    {
+        if(curNode->obj.getId() == id)
+        {
+            if(prevNode == nullptr)
+                this->objList->table[index] = curNode->next;
+            else prevNode->next = curNode->next;
+
+            delete curNode;
+            curNode = nullptr;
+
+            int numId = extractNumId(id);
+            this->checkedId[numId] = false;
+            break;
+        }
+        prevNode = curNode;
+        curNode = curNode->next;
     }
 }
 
@@ -61,33 +145,52 @@ template <typename T>
 void HashTable<T>::show(const string& id)
 {
     T* found = findById(id);
-    if(found != nullptr)
-    {
+    if (found != nullptr)
         found->view();
+}
+
+template <typename T>
+void HashTable<T>::upd(const string& id)
+{
+    T* found = findById(id);
+    if(found == nullptr)
+    {
+        cout << "Ko tim thay Id de update" << endl;
+        return;
     }
-    else cout << "Ko ton tai " << id << endl;
+    found->upd();
 }
 
 template <typename T>
 void HashTable<T>::showAll()
 {
-    string id;
-    for(int i = 0; i < this->cap; i++)
+    for (int i = 0; i < this->cap; i++)
     {
-        stringstream ssid;
-        ssid << 'G' << setw(2) << setfill('0') << i;
-        id = ssid.str();
-        show(id);
+        Node<T>* curNode = this->objList->table[i];
+        if(i == 0) curNode->obj.format();
+
+        while (curNode != nullptr)
+        {
+            curNode->obj.view();
+            curNode = curNode->next;
+        }
     }
 }
 
 template <typename T>
-void saveToFile(const HashTable<T>& objList, const string& file)
+void saveToFile(HashTable<T>* objList, const string& file)
 {
     ofstream fout(file);
-     for (int i = 0; i < objList.cap; ++i)
+
+    if (!fout.is_open())
     {
-        Node<T>* cur = objList.objList->table[i];
+        cerr << "Ko mo dc file: " << file << endl;
+        return;
+    }
+
+    for (int i = 0; i < objList->getCap(); ++i)
+    {
+        Node<T>* cur = objList->getObjList()->table[i];
         while (cur != nullptr)
         {
             cur->obj.writeToFile(fout);
@@ -99,20 +202,23 @@ void saveToFile(const HashTable<T>& objList, const string& file)
 }
 
 template <typename T>
-void loadFromFile(HashTable<T>& table, const string& filename)
+void loadFromFile(HashTable<T>* objList, const string& filename)
 {
     ifstream fin(filename);
-    if (!fin.is_open()) {
-        cerr << "Không thể mở file để đọc: " << filename << endl;
+    if(!fin.is_open())
+    {
+        cerr << "Ko mo dc file: " << filename << endl;
         return;
     }
 
-    while (!fin.eof()) {
+    int loadQnt = 0;
+    while(!fin.eof())
+    {
         T obj;
         obj.readFromFile(fin);
-        if (!fin.eof())
-            table.add(obj);
+        if (fin.fail())
+            break;
+        objList->add(obj, true);
     }
-
     fin.close();
 }
