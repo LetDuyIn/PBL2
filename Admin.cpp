@@ -83,28 +83,40 @@ string Admin::getPass() const
     return this->AdminPass;
 }
 
-void Admin::addGame()
+void Admin::addGame(HashTable<Game>* gameList)
 {
-    StoreDataBase::Instance()->getGameTable()->addNew();
+    gameList->addNew();
 }
 
-void Admin::revGame()
+void Admin::revGame(HashTable<Game>* gameList)
 {
     string id;
     cout << "Id game can xoa: "; cin >> id;
-    StoreDataBase::Instance()->getGameTable()->rev(id);
+    gameList->rev(id);
 }
 
-void Admin::updGame()
+void Admin::updGame(HashTable<Game>* gameList)
 {
     string id;
     cout << "Id game can cap nhat: "; cin >> id;
-    StoreDataBase::Instance()->getGameTable()->upd(id);
+    gameList->upd(id);
 }
 
-void Admin::viewAllGames()
+void Admin::viewAllGames(HashTable<Game>* gameList)
 {
-    StoreDataBase::Instance()->getGameTable()->showAll();
+    gameList->showAll();
+}
+
+void Admin::viewAllUsers(HashTable<User>* userList)
+{
+    userList->showAll();
+}
+
+void Admin::revUser(HashTable<User>* userlist)
+{
+    string id;
+    cout << "Nhap id: ";
+    userList->rev(id);
 }
 
 void Admin::cycle(string type)
@@ -142,12 +154,12 @@ void Admin::clearCycle()
     this->sta->next = nullptr;
 }
 
-void Admin::popGenre()
+void Admin::popGenre(HashTable<User>* userList)
 {
     clearCycle();
-    HashTableInfo<User>* userList = StoreDataBase::Instance()->getUserTable()->getObjList();
+    userList->getObjList();
 
-    for(int i = 0; i < userList->cap; i++)
+    for(int i = 0; i < userList->getCap(); i++)
     {
         Node<User>* uNode = userList->table[i];
 
@@ -175,10 +187,10 @@ void Admin::popGenre()
     }
 }
 
-void Admin::popGame()
+void Admin::popGame(HashTable<User>* userList)
 {
     clearCycle();
-    HashTableInfo<User>* userList = StoreDataBase::Instance()->getUserTable()->getObjList();
+    userList->getObjList();
 
     for(int i = 0; i < userList->cap; i++)
     {
@@ -208,13 +220,13 @@ void Admin::popGame()
     }
 }
 
-void Admin::showPop()
+void Admin::showPop(HashTable<User>* userList)
 {
     countNode* curNode = this->sta;
     cout << "----------Thong ke cua hang----------" << endl;
 
     cout << "Game hot" << endl;
-    popGame();
+    popGame(HashTable<User>* userList);
     while(curNode->next != nullptr)
     {
         curNode = curNode->next;
@@ -222,7 +234,8 @@ void Admin::showPop()
     }
 
     cout << "The loai hot" << endl;
-    popGame();
+    popGenre(HashTable<User>* userList);
+    countNode* curNode = this->sta;
     while(curNode->next != nullptr)
     {
         curNode = curNode->next;

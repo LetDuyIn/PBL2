@@ -2,79 +2,89 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="Cart.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="User.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="239" topLine="3" />
+			<Cursor1 position="337" topLine="22" />
 		</Cursor>
 	</File>
-	<File name="StoreDataBase.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Auth.h" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="518" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="Game.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2341" topLine="103" />
-		</Cursor>
-	</File>
-	<File name="Admin.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3739" topLine="184" />
-		</Cursor>
-	</File>
-	<File name="User.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4072" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="339" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Menu.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="194" topLine="0" />
+			<Cursor1 position="23" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Ultil.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="58" />
+			<Cursor1 position="1238" topLine="48" />
 		</Cursor>
 	</File>
-	<File name="Auth.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Admin.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="49" topLine="0" />
+			<Cursor1 position="5363" topLine="150" />
 		</Cursor>
 	</File>
-	<File name="Cart.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="103" topLine="0" />
+			<Cursor1 position="333" topLine="2" />
 		</Cursor>
 	</File>
-	<File name="StoreDataBase.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Menu.cpp" open="1" top="1" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="764" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="Ultil.tpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4361" topLine="199" />
-		</Cursor>
-	</File>
-	<File name="User.h" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="268" topLine="15" />
+			<Cursor1 position="6277" topLine="265" />
 		</Cursor>
 	</File>
 	<File name="Admin.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="609" topLine="27" />
+			<Cursor1 position="1099" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="Cart.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="179" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="Cart.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="298" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="User.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1361" topLine="138" />
+		</Cursor>
+	</File>
+	<File name="Game.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1813" topLine="87" />
+		</Cursor>
+	</File>
+	<File name="StoreDataBase.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="110" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Auth.cpp" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="19" topLine="54" />
 		</Cursor>
 	</File>
 	<File name="Game.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="485" topLine="18" />
+			<Cursor1 position="512" topLine="20" />
+		</Cursor>
+	</File>
+	<File name="Menu.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="337" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Ultil.tpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3624" topLine="156" />
+		</Cursor>
+	</File>
+	<File name="StoreDataBase.cpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="518" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

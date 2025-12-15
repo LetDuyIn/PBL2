@@ -14,6 +14,11 @@ Cart ::~Cart()
     delete this->gameList;
 }
 
+int Cart::getCap()
+{
+    return this->cap;
+}
+
 void Cart::addCart(Game g)
 {
     this->gameList->add(g, true);

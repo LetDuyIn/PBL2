@@ -12,10 +12,11 @@ class Cart
     friend class User;
 protected:
     HashTable<Game>* gameList = new HashTable<Game>(100);
-    int cap;
 public:
     Cart();
     ~Cart();
+
+    int getCap();
 
     void addCart(Game);
     void revCart(string&);

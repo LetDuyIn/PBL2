@@ -17,22 +17,22 @@
 	<sstream>
 	<iomanip>
 
-1763747249 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\cart.cpp
+1765812474 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\cart.cpp
 	<iostream>
 	"Cart.h"
 	"Ultil.h"
 
-1764856767 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\cart.h
+1765812531 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\cart.h
 	"Game.h"
 	"Ultil.h"
 
-1765811153 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.h
+1765812034 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.h
 	<string>
 	"StoreDataBase.h"
 	"Cart.h"
 	"Game.h"
 
-1765808505 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.cpp
+1765812103 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.cpp
 	"User.h"
 
 1765808641 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.cpp
@@ -42,7 +42,11 @@
 	"Game.h"
 	"StoreDataBase.h"
 
-1765808505 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.h
+1765812398 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.h
+	"User.h"
+	"Cart.h"
+	"Game.h"
+	"Ultil.h"
 	<string>
 	<iostream>
 	<fstream>
@@ -79,7 +83,7 @@
 1765547376 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\storedatabase.cpp
 	"StoreDataBase.h"
 
-1765808505 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\auth.cpp
+1765811886 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\auth.cpp
 	"Auth.h"
 	"User.h"
 	"Admin.h"
@@ -88,4 +92,13 @@
 	<string>
 
 1765808505 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\auth.h
+
+1765812072 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\menu.cpp
+	"Menu.h"
+	<iostream>
+
+1765811948 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\menu.h
+	"User.h"
+	"Admin.h"
+	"Ultil.h"
 

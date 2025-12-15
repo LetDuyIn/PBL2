@@ -82,19 +82,12 @@ void Game::upd()
                 }
             case 2:
                 {
-                    cout << "New GameId: ";
-                    getline(cin, this->GameId);
-                    cout << "Da doi thanh " << this->GameId <<endl;
-                    break;
-                }
-            case 3:
-                {
                     cout << "New GamePrice: ";
                     getline(cin, this->GamePrice);
                     cout << "Da doi thanh " << this->GamePrice <<endl;
                     break;
                 }
-            case 4:
+            case 3:
                 cout << "Dung update" << endl;
                 break;
             default:

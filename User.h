@@ -19,6 +19,7 @@ protected:
     Cart* PerCart = new Cart();
 public:
     User();
+    ~User();
 
     void create(int);
     void info();
@@ -35,7 +36,7 @@ public:
     void sortByGenre(HashTable<Game>*);
     void sortByRate(HashTable<Game>*);
     void viewPerCart();
-    void addPerCart();
+    void addPerCart(HashTable<Game>* gameList);
     void revPerCart();
     void rate();
 

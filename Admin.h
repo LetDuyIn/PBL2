@@ -3,6 +3,11 @@
 
 #pragma once
 
+#include "User.h"
+#include "Cart.h"
+#include "Game.h"
+#include "Ultil.h"
+
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -38,16 +43,19 @@ public:
     string getPass() const;
     void format();
 
-    void addGame();
-    void revGame();
-    void updGame();
-    void viewAllGames();
+    void addGame(HashTable<Game>*);
+    void revGame(HashTable<Game>*);
+    void updGame(HashTable<Game>*);
+    void viewAllGames(HashTable<Game>*);
+
+    void viewAllUsers(HashTable<User>*);
+    void revUser(HashTable<User>*);
 
     void cycle(string);
     void clearCycle();
-    void popGenre();
-    void popGame();
-    void showPop();
+    void popGenre(HashTable<User>*);
+    void popGame(HashTable<User>*);
+    void showPop(HashTable<User>*);
 
     void writeToFile(ofstream&);
     void readFromFile(ifstream&);

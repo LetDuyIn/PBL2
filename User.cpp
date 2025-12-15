@@ -7,6 +7,15 @@ User::User()
 
 }
 
+User::~User()
+{
+    if(this->PerCart != nullptr)
+    {
+        delete this->PerCart;
+        this->PerCart = nullptr;
+    }
+}
+
 void User::create(int numId)
 {
     stringstream ss;
@@ -33,7 +42,34 @@ void User::view() const
 
 void User::upd()
 {
+    int choice;
+    do
+    {
+        cout << "\n--- CAP NHAT THONG TIN ---\n";
+        cout << "1. Doi ten hien thi\n";
+        cout << "2. Doi mat khau\n";
+        cout << "0. Quay lai\n";
+        cout << "Lua chon: ";
+        cin >> choice; cin.ignore();
 
+        switch(choice)
+        {
+        case 1:
+            {
+                cout << "Nhap ten moi: "; getline(cin, this->UserName);
+                break;
+            }
+        case 2:
+            {
+                cout << "Nhap mat khau moi: "; getline(cin, this->UserPass);
+                break;
+            }
+        case 0:
+            break;
+        default:
+            cout << "Chon lai\n";
+        }
+    }while(choice != 0);
 }
 
 void User::viewGameList()
@@ -47,8 +83,8 @@ void User::sortByGenre(HashTable<Game>* gameList)
     cout << "Nhap the loai: "; cin >> genre;
     for(int i = 0; i < gameList->getCap(); i++)
     {
-        if(i == 0) curNode->obj.format();
         Node<Game>* curNode = gameList->getObjList()->table[i];
+        if(i == 0) curNode->obj.format();
         while(curNode != nullptr)
         {
             if(curNode->obj.getGenre() == genre)
@@ -65,8 +101,8 @@ void User::sortByRate(HashTable<Game>* gameList)
     Node<Game>* sortHead = nullptr;
     for(int i = 0; i < gameList->getCap(); i++)
     {
-        if(i == 0) curNode->obj.format();
         Node<Game>* curNode = gameList->getObjList()->table[i];
+        if(i == 0) curNode->obj.format();
         while(curNode != nullptr)
         {
             Node<Game>* newNode = new Node<Game>(curNode->obj, nullptr);
@@ -124,7 +160,7 @@ void User::format()
     cout << "+--------+--------------------------------+--------------------+\n";
 }
 
-void revPerCart()
+void User::revPerCart()
 {
     string id;
     cout << "Nhap id: ";
@@ -132,7 +168,7 @@ void revPerCart()
     this->PerCart->gameList->rev(id);
 }
 
-void rate()
+void User::rate()
 {
     string id;
     cout << "Nhap id: ";

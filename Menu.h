@@ -1,16 +1,20 @@
 #ifndef MENU_H_INCLUDED
 #define MENU_H_INCLUDED
 
-class User;
-class Game;
+#include "User.h"
+#include "Game.h"
+#include "Admin.h"
+#include "Ultil.h"
 
-template<class T>
-class HashTable;
+void userMenu(User*, HashTable<Game>*);
+void userInfoMenu(User*);
+void userStoreGameMenu(User*, HashTable<Game>*);
+void userCartMenu(User*);
 
-void userMenu(User* user, HashTable<Game>* gameTable);
-void userInfoMenu(User* user);
-void storeGameMenu(User* user, HashTable<Game>* gameTable);
-void cartMenu(User* user);
+void adminMenu(Admin*, HashTable<Game>*, HashTable<User>*);
+void adminInfoMenu(Admin*);
+void adminGameMenu(Admin*, HashTable<Game>*);
+void adminUserMenu(Admin*, HashTable<User>*);
 
 
 
