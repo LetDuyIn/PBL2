@@ -9,11 +9,7 @@ User::User()
 
 User::~User()
 {
-    if(this->PerCart != nullptr)
-    {
-        delete this->PerCart;
-        this->PerCart = nullptr;
-    }
+
 }
 
 void User::create(int numId)
@@ -219,6 +215,8 @@ void User::readFromFile(ifstream& fin)
 {
     string line;
     getline(fin, line);
+
+    if (line.empty()) return;
 
     size_t pos = 0;
     size_t commaPos = line.find(',');

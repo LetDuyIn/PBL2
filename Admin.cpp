@@ -50,7 +50,8 @@ void Admin::upd()
     {
         cout << "Phan can update" << endl;
         cout << "1. AdminName" << endl;
-        cout << "2. Dung update" << endl;
+        cout << "2. AdminPass" << endl;
+        cout << "3. Dung update" << endl;
 
         cin >> choice;  cin.ignore();
 
@@ -64,13 +65,20 @@ void Admin::upd()
                     break;
                 }
             case 2:
+                {
+                    cout << "New AdminPass: ";
+                    getline(cin, this->AdminPass);
+                    cout << "Da doi thanh " << this->AdminPass << endl;
+                    break;
+                }
+            case 3:
                 cout << "Dung update" << endl;
                 break;
             default:
                 cout << "Chon lai" << endl;
                 break;
         }
-    } while (choice != 2);
+    } while (choice != 3);
 }
 
 string Admin::getId() const
@@ -116,7 +124,7 @@ void Admin::revUser(HashTable<User>* userlist)
 {
     string id;
     cout << "Nhap id: ";
-    userList->rev(id);
+    userlist->rev(id);
 }
 
 void Admin::cycle(string type)
@@ -157,11 +165,10 @@ void Admin::clearCycle()
 void Admin::popGenre(HashTable<User>* userList)
 {
     clearCycle();
-    userList->getObjList();
 
     for(int i = 0; i < userList->getCap(); i++)
     {
-        Node<User>* uNode = userList->table[i];
+        Node<User>* uNode = userList->getObjList()->table[i];
 
         while(uNode != nullptr)
         {
@@ -192,9 +199,9 @@ void Admin::popGame(HashTable<User>* userList)
     clearCycle();
     userList->getObjList();
 
-    for(int i = 0; i < userList->cap; i++)
+    for(int i = 0; i < userList->getCap(); i++)
     {
-        Node<User>* uNode = userList->table[i];
+        Node<User>* uNode = userList->getObjList()->table[i];
 
         while(uNode != nullptr)
         {
@@ -226,7 +233,7 @@ void Admin::showPop(HashTable<User>* userList)
     cout << "----------Thong ke cua hang----------" << endl;
 
     cout << "Game hot" << endl;
-    popGame(HashTable<User>* userList);
+    popGame(userList);
     while(curNode->next != nullptr)
     {
         curNode = curNode->next;
@@ -234,8 +241,8 @@ void Admin::showPop(HashTable<User>* userList)
     }
 
     cout << "The loai hot" << endl;
-    popGenre(HashTable<User>* userList);
-    countNode* curNode = this->sta;
+    popGenre(userList);
+    curNode = this->sta;
     while(curNode->next != nullptr)
     {
         curNode = curNode->next;

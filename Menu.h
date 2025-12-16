@@ -13,7 +13,7 @@ void userCartMenu(User*);
 
 void adminMenu(Admin*, HashTable<Game>*, HashTable<User>*);
 void adminInfoMenu(Admin*);
-void adminGameMenu(Admin*, HashTable<Game>*);
+void adminGameMenu(Admin*, HashTable<Game>*, HashTable<User>* userList);
 void adminUserMenu(Admin*, HashTable<User>*);
 
 

@@ -67,7 +67,8 @@ void Game::upd()
         cout << "Phan can update" << endl;
         cout << "1. GameName" << endl;
         cout << "2. GamePrice" << endl;
-        cout << "3. Dung update" << endl;
+        cout << "3. GameGenre" << endl;
+        cout << "4. Dung update" << endl;
 
         cin >> choice;  cin.ignore();
 
@@ -88,6 +89,13 @@ void Game::upd()
                     break;
                 }
             case 3:
+                {
+                    cout << "New GameGenre: ";
+                    getline(cin, this->GameGenre);
+                    cout << "Da doi thanh " << this->GameGenre <<endl;
+                    break;
+                }
+            case 4:
                 cout << "Dung update" << endl;
                 break;
             default:

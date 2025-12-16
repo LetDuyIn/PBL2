@@ -1,13 +1,12 @@
 # depslib dependency file v1.0
-1765811153 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\main.cpp
+1765820698 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\main.cpp
 	<iostream>
-	"Game.h"
-	"Cart.h"
-	"User.h"
-	"Ultil.h"
 	"StoreDataBase.h"
+	"Menu.h"
+	"Auth.h"
+	"Ultil.h"
 
-1765805242 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.cpp
+1765817939 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.cpp
 	"Game.h"
 
 1765543909 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.h
@@ -17,7 +16,7 @@
 	<sstream>
 	<iomanip>
 
-1765812474 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\cart.cpp
+1765818614 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\cart.cpp
 	<iostream>
 	"Cart.h"
 	"Ultil.h"
@@ -26,23 +25,23 @@
 	"Game.h"
 	"Ultil.h"
 
-1765812034 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.h
+1765817939 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.h
 	<string>
 	"StoreDataBase.h"
 	"Cart.h"
 	"Game.h"
 
-1765812103 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.cpp
+1765820665 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.cpp
 	"User.h"
 
-1765808641 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.cpp
+1765818878 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.cpp
 	"Admin.h"
 	"User.h"
 	"Cart.h"
 	"Game.h"
 	"StoreDataBase.h"
 
-1765812398 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.h
+1765817939 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.h
 	"User.h"
 	"Cart.h"
 	"Game.h"
@@ -93,12 +92,15 @@
 
 1765808505 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\auth.h
 
-1765812072 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\menu.cpp
+1765845019 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\menu.cpp
 	"Menu.h"
 	<iostream>
+	<iomanip>
+	<cstdlib>
 
-1765811948 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\menu.h
+1765819006 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\menu.h
 	"User.h"
+	"Game.h"
 	"Admin.h"
 	"Ultil.h"
 
