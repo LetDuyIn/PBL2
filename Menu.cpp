@@ -8,14 +8,18 @@ using namespace std;
 void userInfoMenu(User* user)
 {
     int choice;
-
     do
     {
         system("cls");
-        cout << "\n----- THONG TIN CA NHAN -----\n";
-        cout << "1. Xem thong tin\n";
-        cout << "2. Cap nhat thong tin\n";
+        // Hien thi thong tin ngay lap tuc
+        cout << "\n========== THONG TIN CA NHAN ==========\n";
+        user->format();
+        user->view();
+        cout << "=======================================\n";
+
+        cout << "1. Cap nhat thong tin\n";
         cout << "0. Quay lai\n";
+        cout << "---------------------------------------\n";
         cout << "Lua chon: ";
 
         cin >> choice;
@@ -24,17 +28,10 @@ void userInfoMenu(User* user)
         switch (choice)
         {
             case 1:
-                user->format();
-                user->view();
-                break;
-
-            case 2:
                 user->upd();
                 break;
-
             case 0:
                 break;
-
             default:
                 cout << "Lua chon sai!\n";
         }
@@ -46,16 +43,19 @@ void userInfoMenu(User* user)
 void userGameMenu(User* user, HashTable<Game>* gameTable)
 {
     int choice;
-
     do
     {
         system("cls");
-        cout << "\n----- GAME TRONG CUA HANG -----\n";
-        cout << "1. Xem tat ca game\n";
-        cout << "2. Loc theo the loai\n";
-        cout << "3. Loc theo do hot\n";
-        cout << "4. Them game vao cart\n";
+        // Hien thi danh sach game ngay lap tuc
+        cout << "\n========== DANH SACH GAME ==========\n";
+        gameTable->showAll();
+        cout << "====================================\n";
+
+        cout << "1. Loc theo the loai\n";
+        cout << "2. Loc theo do hot\n";
+        cout << "3. Them game vao cart\n";
         cout << "0. Quay lai\n";
+        cout << "------------------------------------\n";
         cout << "Lua chon: ";
 
         cin >> choice;
@@ -63,29 +63,17 @@ void userGameMenu(User* user, HashTable<Game>* gameTable)
 
         switch (choice)
         {
-            case 1:
-                gameTable->showAll();
-                break;
-
-            case 2:
-            {
+            case 1: // Cu la 2
                 user->sortByGenre(gameTable);
                 break;
-            }
-
-            case 3:
+            case 2: // Cu la 3
                 user->sortByRate(gameTable);
                 break;
-
-            case 4:
-            {
+            case 3: // Cu la 4
                 user->addPerCart(gameTable);
                 break;
-            }
-
             case 0:
                 break;
-
             default:
                 cout << "Lua chon sai!\n";
         }
@@ -97,16 +85,19 @@ void userGameMenu(User* user, HashTable<Game>* gameTable)
 void userCartMenu(User* user)
 {
     int choice;
-
     do
     {
         system("cls");
-        cout << "\n----- GAME TRONG CART -----\n";
-        cout << "1. Xem cart\n";
-        cout << "2. Xoa game khoi cart\n";
-        cout << "3. Danh gia game\n";
-        cout << "4. Tong tien trong cart\n";
+        // Hien thi gio hang ngay lap tuc
+        cout << "\n========== GIO HANG CUA BAN ==========\n";
+        user->viewPerCart();
+        cout << "======================================\n";
+
+        cout << "1. Xoa game khoi cart\n";
+        cout << "2. Danh gia game\n";
+        cout << "3. Tong tien trong cart\n";
         cout << "0. Quay lai\n";
+        cout << "--------------------------------------\n";
         cout << "Lua chon: ";
 
         cin >> choice;
@@ -114,32 +105,21 @@ void userCartMenu(User* user)
 
         switch (choice)
         {
-            case 1:
-                user->viewPerCart();
-                break;
-
-            case 2:
-            {
+            case 1: // Cu la 2
                 user->revPerCart();
                 break;
-            }
-
-            case 3:
-            {
+            case 2: // Cu la 3
                 user->rate();
                 break;
-            }
-
-            case 4:
+            case 3: // Cu la 4
             {
                 Cart* myCart = user->getCart();
                 double total = myCart->sum();
-                cout << "Tong tien thanh toan: " << total << endl;
+                cout << ">>> Tong tien thanh toan: " << total << endl;
+                break;
             }
-
             case 0:
                 break;
-
             default:
                 cout << "Lua chon sai!\n";
         }
@@ -151,7 +131,6 @@ void userCartMenu(User* user)
 void userMenu(User* user, HashTable<Game>* gameTable)
 {
     int choice;
-
     do
     {
         system("cls");
@@ -160,6 +139,7 @@ void userMenu(User* user, HashTable<Game>* gameTable)
         cout << "2. Game trong cua hang\n";
         cout << "3. Game trong cart\n";
         cout << "0. Dang xuat\n";
+        cout << "-------------------------------\n";
         cout << "Lua chon: ";
 
         cin >> choice;
@@ -170,19 +150,15 @@ void userMenu(User* user, HashTable<Game>* gameTable)
             case 1:
                 userInfoMenu(user);
                 break;
-
             case 2:
                 userGameMenu(user, gameTable);
                 break;
-
             case 3:
                 userCartMenu(user);
                 break;
-
             case 0:
-                cout << "Dang xuat USER\n";
+                cout << "Dang xuat USER...\n";
                 break;
-
             default:
                 cout << "Lua chon khong hop le!\n";
         }
@@ -197,20 +173,22 @@ void adminUserMenu(Admin* admin, HashTable<User>* userList)
     do
     {
         system("cls");
-        cout << "\n========== QUAN LY USER ==========\n";
-        cout << "1. Xem danh sach User\n";
-        cout << "2. Xoa User (Ban tai khoan)\n";
+        // Hien thi danh sach user ngay lap tuc
+        cout << "\n========== DANH SACH USER ==========\n";
+        admin->viewAllUsers(userList);
+        cout << "====================================\n";
+
+        cout << "1. Xoa User (Ban tai khoan)\n";
         cout << "0. Quay lai\n";
+        cout << "------------------------------------\n";
         cout << "Lua chon: ";
+
         cin >> choice;
         cin.ignore();
 
         switch (choice)
         {
-            case 1:
-                admin->viewAllUsers(userList);
-                break;
-            case 2:
+            case 1: // Cu la 2
                 admin->revUser(userList);
                 break;
             case 0:
@@ -225,14 +203,18 @@ void adminUserMenu(Admin* admin, HashTable<User>* userList)
 void adminInfoMenu(Admin* admin)
 {
     int choice;
-
     do
     {
         system("cls");
-        cout << "\n----- THONG TIN CA NHAN -----\n";
-        cout << "1. Xem thong tin\n";
-        cout << "2. Cap nhat thong tin\n";
+        // Hien thi thong tin admin ngay lap tuc
+        cout << "\n========== THONG TIN ADMIN ==========\n";
+        admin->format();
+        admin->view();
+        cout << "=====================================\n";
+
+        cout << "1. Cap nhat thong tin\n";
         cout << "0. Quay lai\n";
+        cout << "-------------------------------------\n";
         cout << "Lua chon: ";
 
         cin >> choice;
@@ -240,18 +222,11 @@ void adminInfoMenu(Admin* admin)
 
         switch (choice)
         {
-            case 1:
-                admin->format();
-                admin->view();
-                break;
-
-            case 2:
+            case 1: // Cu la 2
                 admin->upd();
                 break;
-
             case 0:
                 break;
-
             default:
                 cout << "Lua chon sai!\n";
         }
@@ -266,37 +241,33 @@ void adminGameMenu(Admin* admin, HashTable<Game>* gameList, HashTable<User>* use
     do
     {
         system("cls");
+        // Hien thi kho game ngay lap tuc
         cout << "\n========== QUAN LY KHO GAME ==========\n";
-        cout << "1. Xem kho Game\n";
-        cout << "2. Them Game moi\n";
-        cout << "3. Cap nhat Game\n";
-        cout << "4. Xoa Game\n";
-        cout << "5. Thong ke doanh thu/hot\n";
+        admin->viewAllGames(gameList);
+        cout << "======================================\n";
+
+        cout << "1. Them Game moi\n";
+        cout << "2. Cap nhat Game\n";
+        cout << "3. Xoa Game\n";
+        cout << "4. Thong ke doanh thu/hot\n";
         cout << "0. Quay lai\n";
+        cout << "--------------------------------------\n";
         cout << "Lua chon: ";
         cin >> choice; cin.ignore();
 
         switch (choice) {
-            case 1:
-                admin->viewAllGames(gameList);
-                break;
-
-            case 2:
+            case 1: // Cu la 2
                 admin->addGame(gameList);
                 break;
-
-            case 3:
+            case 2: // Cu la 3
                 admin->updGame(gameList);
                 break;
-
-            case 4:
+            case 3: // Cu la 4
                 admin->revGame(gameList);
                 break;
-
-            case 5:
+            case 4: // Cu la 5
                 admin->showPop(userList);
                 break;
-
             case 0:
                 break;
             default: cout << "Lua chon sai!\n";
@@ -308,7 +279,6 @@ void adminGameMenu(Admin* admin, HashTable<Game>* gameList, HashTable<User>* use
 void adminMenu(Admin* admin, HashTable<Game>* games, HashTable<User>* users)
 {
     int choice;
-
     do
     {
         system("cls");
@@ -317,6 +287,7 @@ void adminMenu(Admin* admin, HashTable<Game>* games, HashTable<User>* users)
         cout << "2. Quan ly User\n";
         cout << "3. Thong tin Admin\n";
         cout << "0. Dang xuat\n";
+        cout << "--------------------------------\n";
         cout << "Lua chon: ";
         cin >> choice;
         cin.ignore();
@@ -326,18 +297,15 @@ void adminMenu(Admin* admin, HashTable<Game>* games, HashTable<User>* users)
             case 1:
                 adminGameMenu(admin, games, users);
                 break;
-
             case 2:
                 adminUserMenu(admin, users);
                 break;
-
             case 3:
                 adminInfoMenu(admin);
                 break;
-
             case 0:
+                cout << "Dang xuat ADMIN...\n";
                 break;
-
             default:
                 cout << "Lua chon khong hop le!\n";
         }
