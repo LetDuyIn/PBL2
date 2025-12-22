@@ -1,45 +1,54 @@
 #include <iostream>
 #include "Cart.h"
+#include "Ultil.h"
 
 using namespace std;
 
-Cart::Cart() : cap(0)
+Cart::Cart()
 {
 
+}
+
+Cart ::~Cart()
+{
+    delete this->gameList;
 }
 
 void Cart::addCart(Game g)
 {
-    gameList.push_back(g);
-    this->cap++;
+    this->gameList->add(g, true);
+    cout << "==> Da them game " << g.getId() << " vao gio hang." << endl;
 }
 
-void Cart::showCart()
+void Cart::revCart(string& id)
 {
-    if(gameList.empty())
-    {
-        cout << "Rong" <<endl;
-    }
-    else
-    {
-        cout << "So luong game: " << this->cap << endl;
-        cout << "Game List In Cart: " << endl;
-        for(auto& g : gameList) g.view();
-        cout << "Sum of Money: " << sum() << " VND\n" << endl;
-    }
-}
+    this->gameList->rev(id);
+ }
 
-void Cart::showGame(string id)
-{
-    for(auto& g : gameList)
-    {
-        if(g.getId() == id) g.view();
-    }
-}
+ void Cart::showCart()
+ {
+     cout << "Gamelist:" << endl;
+     this->gameList->showAll();
+ }
 
 double Cart::sum()
 {
-    double sum = 0;
-    for(auto& g : gameList) sum += g.getPrice();
-    return sum;
+    double totalSum = 0;
+    int cartCap = this->gameList->getCap();
+    Node<Game>** table = this->gameList->getObjList()->table;
+
+    for (int i = 0; i < cartCap; i++)
+    {
+        Node<Game>* curNode = table[i];
+        while (curNode != nullptr)
+        {
+            totalSum += stod(curNode->obj.getPrice());
+            curNode = curNode->next;
+        }
+    }
+    return totalSum;
+}
+HashTable<Game>* Cart::getGameList()
+{
+    return this->gameList;
 }

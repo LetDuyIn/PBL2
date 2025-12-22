@@ -3,7 +3,7 @@
 
 #pragma once
 #include "Game.h"
-#include <vector>
+#include "Ultil.h"
 
 using namespace std;
 
@@ -11,15 +11,19 @@ class Cart
 {
     friend class User;
 protected:
-    vector <Game> gameList;
-    int cap;
+    HashTable<Game>* gameList = new HashTable<Game>(100);
 public:
     Cart();
+    ~Cart();
+
+    int getCap();
+
     void addCart(Game);
-    void revCart(string);
+    void revCart(string&);
     void showCart();
-    void showGame(string);
     double sum();
+
+    HashTable<Game>* getGameList();
 };
 
 #endif // CART_H_INCLUDED

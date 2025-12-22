@@ -1,24 +1,63 @@
 #include <iostream>
-#include "Game.h"
-#include "Cart.h"
-#include "User.h"
+#include "StoreDataBase.h"
+#include "Menu.h"
+#include "Auth.h"
 #include "Ultil.h"
 using namespace std;
 
 int main()
 {
-    HashTable<Game> GameInStore(10);
-    GameInStore.showAll();
+    StoreDataBase* store = StoreDataBase::Instance();
+    HashTable<Game>* games = store->getGameTable();
+    loadFromFile(games, "GameInStore.txt");
+    //games->showAll();
 
-    Game g0("Skyrim", "G00", 30000);
-    Game g1("Skyrim", "G01", 30000);
-    Game g2("Skyrim", "G02", 30000);
-    Game g3("Skyrim", "G03", 30000);
+    HashTable<User>* users = store->getUserTable();
+    loadFromFile(users, "UserInStore.txt");
+    //users->showAll();
 
-    GameInStore.add(g0);
-    GameInStore.add(g1);
-    GameInStore.add(g2);
-    GameInStore.add(g3);
+    HashTable<Admin>* admins = store->getAdminTable();
+    loadFromFile(admins, "AdminInStore.txt");
+    //admins->showAll();
 
-    GameInStore.showAll();
+    int choice;
+    do {
+        cout << "\n=================================\n";
+        cout << "   HE THONG QUAN LY MUA BAN GAME \n";
+        cout << "=================================\n";
+        cout << "1. Dang nhap Admin\n";
+        cout << "2. Dang nhap User\n";
+        cout << "3. Dang ky User\n";
+        cout << "0. Thoat chuong trinh\n";
+        cout << "Lua chon: ";
+        cin >> choice; cin.ignore();
+
+        switch(choice) {
+            case 1:
+            {
+                Admin* admin = logAdmin(store->getAdminTable());
+                if(admin) adminMenu(admin, games, users);
+                break;
+            }
+            case 2:
+            {
+                User* user = logUser(store->getUserTable());
+                if(user) userMenu(user, games);
+                break;
+            }
+            case 3:
+                regUser(store->getUserTable());
+                break;
+            case 0:
+                break;
+            default: cout << "Lua chon sai!\n";
+        }
+    } while(choice != 0);
+
+    cout << "Dang luu du lieu va thoat...\n";
+    saveToFile(games, "GameInStore.txt");
+    saveToFile(users, "UserInStore.txt");
+    saveToFile(admins, "AdminInstore.txt");
+
+    return 0;
 }

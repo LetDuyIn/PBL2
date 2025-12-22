@@ -2,9 +2,12 @@
 #define GAME_H_INCLUDED
 
 #pragma once
+
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -14,12 +17,26 @@ class Game
 protected:
     string GameId;
     string GameName;
-    double GamePrice;
+    string GamePrice;
+    string GameGenre;
+    string GameRate;
+    string GameRateCount;
 public:
-    Game(string, string, double);
-    void view();
+    Game();
+
+    void create(int);
+    void info();
+    void view() const;
+    void upd();
+
+    void rate(double);
+    void format();
+
     string getId() const;
-    double getPrice();
+    string getPrice() const;
+    string getName() const;
+    string getGenre() const;
+    string getRate() const;
 
     void writeToFile(ofstream&);
     void readFromFile(ifstream&);

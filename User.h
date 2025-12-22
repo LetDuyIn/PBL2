@@ -2,8 +2,9 @@
 #define USER_H_INCLUDED
 
 #pragma once
+
 #include <string>
-#include <vector>
+#include "StoreDataBase.h"
 #include "Cart.h"
 #include "Game.h"
 
@@ -14,13 +15,33 @@ class User
 protected:
     string UserName;
     string UserId;
-    Cart PerCart;
+    string UserPass;
+    Cart* PerCart = new Cart();
 public:
-    User(string, string, Cart);
-    //void viewStore(GameInStore);
+    User();
+    ~User();
+
+    void create(int);
+    void info();
+    void view() const;
+    void upd();
+
+    string getId() const;
+    string getPass() const;
+    Cart* getCart();
+
+    void format();
+
     void viewGameList();
-    void viewGame(string);
+    void sortByGenre(HashTable<Game>*);
+    void sortByRate(HashTable<Game>*);
     void viewPerCart();
+    void addPerCart(HashTable<Game>* gameList);
+    void revPerCart();
+    void rate();
+
+    void writeToFile(ofstream&);
+    void readFromFile(ifstream&);
 };
 
 #endif // USER_H_INCLUDED
