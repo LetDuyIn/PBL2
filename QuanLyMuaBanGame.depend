@@ -6,7 +6,7 @@
 	"Auth.h"
 	"Ultil.h"
 
-1765868051 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.cpp
+1766467468 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.cpp
 	"Game.h"
 
 1765543909 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\game.h
@@ -31,10 +31,10 @@
 	"Cart.h"
 	"Game.h"
 
-1765820665 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.cpp
+1766467468 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\user.cpp
 	"User.h"
 
-1765868051 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.cpp
+1766378330 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\admin.cpp
 	"Admin.h"
 	"User.h"
 	"Cart.h"
@@ -69,7 +69,7 @@
 1763171314 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.h
 	"Ultil.tpp"
 
-1765543909 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.tpp
+1766466491 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\ultil.tpp
 	<sstream>
 	<iomanip>
 	<fstream>
@@ -92,7 +92,7 @@
 
 1765808505 d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\auth.h
 
-1766310377 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\menu.cpp
+1766379548 source:d:\coding\filecodeblock\pbl2\pbl2\quanlymuabangame\menu.cpp
 	"Menu.h"
 	<iostream>
 	<iomanip>

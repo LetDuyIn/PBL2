@@ -164,10 +164,12 @@ void HashTable<T>::upd(const string& id)
 template <typename T>
 void HashTable<T>::showAll()
 {
+    T headerObj;
+    headerObj.format();
+
     for (int i = 0; i < this->cap; i++)
     {
         Node<T>* curNode = this->objList->table[i];
-        if(i == 0) curNode->obj.format();
 
         while (curNode != nullptr)
         {

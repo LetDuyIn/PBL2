@@ -7,6 +7,7 @@ G17,DOOM Eternal,400000,FPS,8.9,3
 G18,Cuphead,150000,Platformer,9.1,2
 G19,Red Dead Redemption 2,550000,Action-Adventure,9.6,6
 G20,Persona 5,450000,J-RPG,9.2,4
+G21,Dark Alliance,75000,RPG,0,0
 G01,The Witcher 3,500000,RPG,9.5,1
 G02,Hollow Knight,150000,Metroidvania,9.2,2
 G03,Celeste,120000,Platformer,9.0,3

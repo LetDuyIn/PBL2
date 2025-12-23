@@ -94,11 +94,13 @@ void User::sortByGenre(HashTable<Game>* gameList)
 
 void User::sortByRate(HashTable<Game>* gameList)
 {
+    Game headerObj;
+    headerObj.format();
+
     Node<Game>* sortHead = nullptr;
     for(int i = 0; i < gameList->getCap(); i++)
     {
         Node<Game>* curNode = gameList->getObjList()->table[i];
-        if(i == 0) curNode->obj.format();
         while(curNode != nullptr)
         {
             Node<Game>* newNode = new Node<Game>(curNode->obj, nullptr);
@@ -175,7 +177,6 @@ void User::rate()
     cin >> rate;
 
     this->PerCart->gameList->findById(id)->rate(rate);
-
 }
 
 string User::getId() const

@@ -49,6 +49,9 @@ void Game::create(int numId)
     stringstream ss;
     ss<< 'G' << setw(2) << setfill('0') << numId;
     this->GameId = ss.str();
+
+    this->GameRate = '0';
+    this->GameRateCount = '0';
 }
 
 void Game::info()
@@ -57,6 +60,8 @@ void Game::info()
     getline(cin, this->GameName);
     cout << "Nhap gia: ";
     getline(cin, this->GamePrice);
+    cout << "Nhap the loai: ";
+    getline(cin, this->GameGenre);
 }
 
 void Game::upd()
